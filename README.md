@@ -119,4 +119,25 @@ Supongamos que queremos saber a que red pertenece la ip: ``10.2.2.199/26``
                                             `10.2.2.254`     <------  **Broadcast id**
             **Next id**  -------->    10.2.2.255
 
-Dividimos 
+Dividimos el octeto .255 en 4 secciones de 64 ips, y vemos entre que segmento se encuentra nuestra ip `10.2.2.199/26`, en este caso vemos que se encuentra en el cuarto segmento, entre `10.2.2.192` y `10.2.2.254`, por lo que este primero será **Network id** y el segundo **Broadcast id**, dejando `64 - 2` = `62` direcciones dispoibles, desde la **First id** hasta la **Last id**.
+
+Ahora que ya sabes resolver esto, puede resultarte incluso sencillo, pero puede resultar un proceso más lento cuando la red se divide en más subredes, por ejemplo si fuese un CDIR `/29`, Y tuviesemos qeu contanr desde `10.2.2.0` hasta `10.2.2.192` de 8 en 8.
+
+Por eso te voy a facilitar los siguientes
+
+# Speed Tricks:
+
+    1. Multiplicar el **Group size** por **10**   EX: 8 * 10 = 80;    --->   .8
+                                                                      --->  .80
+                                                                      --->  .160  
+    
+    2. Multiplicar el Multiplicar el **Group size** por **2**         --->  .8
+                                                                      --->  .80
+                                                                                 x2
+                                                                      --->  .160
+                                                                      
+    3. Todos los grupos pasan por 128, asique podemos partir de este número para iniciar la búsqueda.
+    4. Todos los grupos pasan por el subnet Mask de su izquierda en la cheat sheet, asique es un buen momento 
+    para hacer uso de esta, y en caso de pasarnos, empezar por un ip superior y restar el group size hasta encontrar el
+    segmento al que pertenece nuestro ip objetivo.
+                                                                                
