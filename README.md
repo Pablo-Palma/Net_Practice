@@ -140,4 +140,8 @@ Por eso te voy a facilitar los siguientes
     4. Todos los grupos pasan por el subnet Mask de su izquierda en la cheat sheet, asique es un buen momento 
     para hacer uso de esta, y en caso de pasarnos, empezar por un ip superior y restar el group size hasta encontrar el
     segmento al que pertenece nuestro ip objetivo.
+
+</details>
+<details>
+<summary><strong>Levels</strong></summary>
                                                                                 
