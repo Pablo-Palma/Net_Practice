@@ -10,7 +10,7 @@ Bienvenidos a Net_Practice, un ejercicio exhaustivo destinado a dominar la confi
 
 #### Subcomponentes:
 - **Máscara de Subred:** Una combinación de bits que enmascara la dirección IP y divide los componentes de red y host.
-- **ID de Red:** La parte de la dirección IP que identifica la red específica.
+- **ID de Red:**  La parte de la dirección IP que identifica la red específica.
 - **ID de Host:** La parte de la dirección IP que identifica el dispositivo específico en la red.
 
 ### 2. IPv4 vs IPv6
@@ -42,3 +42,81 @@ Subnetting implica dividir una red IP física en múltiples subredes lógicas. C
 ### 5. Dirección Loopback
 
 Un rango de dirección IP especial (127.0.0.0 a 127.255.255.255) reservado para comunicaciones internas dentro de un dispositivo. Esto permite que un dispositivo envíe y reciba paquetes hacia y desde sí mismo, lo cual es crucial para pruebas y gestión de redes.
+  
+</details>
+<details>
+<summary><strong>Mask Explanation</strong></summary>
+
+# Mask Explanation
+
+Para comenzar vamos a suponer que la network id abarca los 3 primeros octetos y solo vamos a interactuar con el último que va desde  ``192.168.1.0`` a `192.168.1.255`.
+
+Este último octeto son 8 bytes, cada uno de los cuales puede ser `0` o `1`, por lo que si todos están activados(`11111111`) sería `2 ^ 8` = `256`.
+
+Antes hemos comentado que la ip podíamos dividirla en **Network ID**, y **Host Id**, usando la máscara, de esta forma, cuando asignamos una máscara en notación CDIR `\24` estaríamos asignando los 3 primeros bytes (8 * 3 = 24 primeros bits) para la **Network ID**, y unicamente el último octeto de bits para el host, por lo que esta red (192.168.1.0/24) abarcaría desde ``192.168.1.0`` a `192.168.1.255`, abarcando 255 ip's posibles.
+
+Podemos subdividir esta red en en dos redes de igual tamaño aplicando una máscara /25, es decir dejando libres para el host unicamente los 7 ultimos bits, estaríamos convirtiendo la red en dos redes: 
+
+**Primera**. `192.168.1.0/25` que alberga 128 ip's de la `192.168.1.0` a la `192.168.1.128`.
+
+**Segunda**.`192.168.1.128/25` que alberga 128 ip's de la `192.168.1.128` a la `192.168.1.255`.
+
+De igual forma en vez de dividir la red en notación CDIR podemos hacerlo con la subnet mask, es decir `/25` correspondería con `255.255.255.128` que a su vez correspondería con `11111111.11111111.11111111.10000000` porque al ser el primer bit, `2 ^ 7` = `128`. Esto quiere decir que cada segmento de red con esta máscara abarca 128 posibles ip`s. 
+
+Esto puede parecer un poco complejo, por eso te voy a presentar un cheat Sheat que te permitirá convertir de CDIR a Subnet Mask en 60 segundos.
+
+</details>
+<details>
+<summary><strong>Cheat Sheet</strong></summary>
+
+# Cheat Sheet
+
+  Group Size  | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
+|-------------|-----|----|----|----|---|---|---|---|
+| Subnet Mask | 128 | 192| 224| 240| 248| 252| 254| 255 |
+| CIDR        | /25 | /26| /27| /28| /29| /30| /31| /32 |
+
+Crear esta tabla es realmente sencillo, especialmente si sigues estos pasos:
+
+  **1.** La primera fila son 8 potencias de 2, desde `2 ^ 7`hasta `2 ^ 0`.
+  
+  **2.** La segunda fila la obtendrás de restar a 256 (ip's posibles), el **Group Size**.
+  
+  **3.** Por ultimo comenzando desde la izquierda, desde ´/25´ porque estás cogiendo el primer bit del 4 octeto hasta el total de bits que caben en 4 bytes.
+
+</details>
+<details>
+<summary><strong>How to solve</strong></summary>
+
+# How to solve
+
+Primero abordemos una serie de conceptos :
+  # Concepts:
+  
+   - **Network id**: La parte de la dirección IP que identifica la red específica.
+   - **First id**: Primera ip util, la obtenemos sumando uno a la **Network id**
+   - **Last id**:  última ip util, la obtenemos restando uno a la **Broadcast id**
+   - **Broadcast id**: Dirección de red utilizada para transmitir a todos los dispositivos conectados a una red de comunicaciones de acceso múltiple.
+
+
+Ahora que sabes crear tu propio **Cheat Sheet**, y conoces los conceptos necesarios, no hay escusas, podrás resolver cualquier problema de **Subnetting** en menos de 60 segundos siguiendo estos pasos:
+
+# Steeps
+Supongamos que queremos saber a que red pertenece la ip: ``10.2.2.199/26``
+
+  **Steep 1.** 
+    
+  Miramos en la tabla el `/26` y observamos que como **Subnet Mask** se representaría con 255.255.255.`192`, esto proviene de `11000000`, es decir `2 ^ 7` = `128` + `2 ^ 6` = `64` = `192`, osea disponemos de 6 bits para el host, lo que divide la red en 4 subredes que cubren 64 ips cada una. 
+
+  Podemos hacer lo siguiente:     
+  
+                                      10.2.2.0 
+                                      10.2.2.64 
+                                      10.2.2.128  
+            **Network id**  ----->    10.2.2.192
+                                            `10.2.2.193`     <------  **First id**
+                                            `10.2.2.253`     <------  **Last id**
+                                            `10.2.2.254`     <------  **Broadcast id**
+            **Next id**  -------->    10.2.2.255
+
+Dividimos 
