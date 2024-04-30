@@ -2,8 +2,9 @@
 
 Bienvenidos a Net_Practice, un ejercicio exhaustivo destinado a dominar la configuración y resolución de problemas de redes. Este README te guiará a través de los conceptos esenciales requeridos para navegar y tener éxito en este proyecto.
 
-## Conceptos
-
+<details>
+<summary><strong>Conceptos</strong></summary>
+  
 ### 1. TCP/IP
 **IP (Internet Protocol Adresses):** Una cadena única de números separados por puntos (IPv4) o dos puntos (IPv6) que identifica un dispositivo en una red. Una dirección IP consta de dos partes principales: el ID de Red y el ID de Host, diferenciados por una máscara de subred. Por ejemplo, en la dirección IP `192.168.1.1/24`, el ID de Red es `192.168.1` y el ID de Host es `1` .
 
