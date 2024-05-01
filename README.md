@@ -63,7 +63,7 @@ Podemos subdividir esta red en en dos redes de igual tamaño aplicando una másc
 
 De igual forma en vez de dividir la red en notación CDIR podemos hacerlo con la subnet mask, es decir `/25` correspondería con `255.255.255.128` que a su vez correspondería con `11111111.11111111.11111111.10000000` porque al ser el primer bit, `2 ^ 7` = `128`. Esto quiere decir que cada segmento de red con esta máscara abarca 128 posibles ip`s. 
 
-![subnetting inmage](images/mask.png)
+![subnetting image](images/mask.png)
 
 Esto puede parecer un poco complejo, por eso te voy a presentar un cheat Sheat que te permitirá convertir de CDIR a Subnet Mask en 60 segundos.
 
