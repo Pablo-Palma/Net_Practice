@@ -172,20 +172,6 @@ Para simplificar el proceso a la hora de buscar a que subred pertenece una ip, s
 
   </details>
 
-  - <details>
-  <summary><strong>Level 9</strong></summary>
-
-  Contenido del nivel 9.
-
-  </details>
-
-  - <details>
-  <summary><strong>Level 10</strong></summary>
-
-  Contenido del nivel 10.
-
-  </details>
-
 
 </details>
                                    
