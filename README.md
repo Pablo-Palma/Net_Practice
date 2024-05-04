@@ -149,4 +149,43 @@ Para simplificar el proceso a la hora de buscar a que subred pertenece una ip, s
 </details>
 <details>
 <summary><strong>Levels</strong></summary>
-                                                                                
+
+- <details>
+  <summary><strong>Level 6</strong></summary>
+
+  Contenido del nivel 6.
+
+  </details>
+
+- <details>
+  <summary><strong>Level 7</strong></summary>
+
+  Contenido del nivel 7.
+  ![Level 7 image](images/Level7.png)
+
+  </details>
+
+- <details>
+  <summary><strong>Level 8</strong></summary>
+
+  Contenido del nivel 8.
+
+  </details>
+
+  - <details>
+  <summary><strong>Level 9</strong></summary>
+
+  Contenido del nivel 9.
+
+  </details>
+
+  - <details>
+  <summary><strong>Level 10</strong></summary>
+
+  Contenido del nivel 10.
+
+  </details>
+
+
+</details>
+                                   
