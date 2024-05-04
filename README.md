@@ -176,7 +176,17 @@ Para simplificar el proceso a la hora de buscar a que subred pertenece una ip, s
 - <details>
   <summary><strong>Level 8</strong></summary>
 
-  Contenido del nivel 8.
+  En el nivel 8 tenemos dos routers conectados, el primero conecta con internet, y el segundo conecta a través de dos redes al host D y C.
+  
+  A mí entre routers me gusta usar una máscara de red `/30`, es decir 4 ips, de las cuales, si excluimos la **Network id** y la **Broadcast id**, nos quedan dos, es decir las necesarias para conectar dos routers, en este caso el **Next Hop** de **R2**, nos proporciona la ip de la interface R13, y para la de R21 podemos usar un valor por debajo.
+  
+  Por último, intenet solo tiene destino en una red: `158.46.67.0/26` asique haremos subnetting de esta, para conectar ambos host a internet. se nos proporciona una máscara `255.255.255.240`, es decir `/28`, que alberga 16 ips, esto es muy sencillo de comprobar con la **Cheat Sheet** que te proporcioné anteriormente.
+  
+  Asique para el Host D, podemos usar caulquier valor entre los 16 primeros ips, Network id y Broadcats ip excluidos, y para el Host C del `.17` hasta el `.30` si mantenemos la máscara `/28`, asegurandonos así que no hacemos **overlapping** con el rango que usamos para conectar los routers.
+
+  No te ovlides de establecer el destino en la red de los host `158.46.67.0/26` y el **Next Hop** de internet en la interfaz del siguiente router.
+  
+   <img src="images/Level8.png" alt="Level 9 image" width="90%" height="90%">
 
   </details>
 
