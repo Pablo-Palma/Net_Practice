@@ -153,7 +153,7 @@ Para simplificar el proceso a la hora de buscar a que subred pertenece una ip, s
 - <details>
   <summary><strong>Level 6</strong></summary>
 
-  <img src="images/Level6.png" alt="Level 7 image" width="90%" height="90%">
+  <img src="images/Level6.png" alt="Level 6 image" width="90%" height="90%">
 
   </details>
 
