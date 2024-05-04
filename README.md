@@ -53,7 +53,7 @@ Para comenzar vamos a suponer que la network id abarca los 3 primeros octetos y 
 
 Este último octeto son 8 bytes, cada uno de los cuales puede ser `0` o `1`, por lo que si todos están activados(`11111111`) sería `2 ^ 8` = `256`.
 
-Antes hemos comentado que la ip podíamos dividirla en **Network ID**, y **Host Id**, usando la máscara, de esta forma, cuando asignamos una máscara en notación CDIR `\24` estaríamos asignando los 3 primeros bytes (8 * 3 = 24 primeros bits) para la **Network ID**, y unicamente el último octeto de bits para el host, por lo que esta red (192.168.1.0/24) abarcaría desde ``192.168.1.0`` a `192.168.1.255`, abarcando 255 ip's posibles.
+Antes hemos comentado que la ip podíamos dividirla en **Network ID**, y **Host Id**, usando la máscara, de esta forma, cuando asignamos una máscara en notación CDIR `\24` estaríamos asignando los 3 primeros bytes (8 * 3 = 24 primeros bits) para la **Network ID**, y unicamente el último octeto de bits para el host, por lo que esta red (192.168.1.0/24) abarcaría desde ``192.168.1.0`` a `192.168.1.255`, abarcando 256 ip's posibles.
 
 Podemos subdividir esta red en en dos redes de igual tamaño aplicando una máscara /25, es decir dejando libres para el host unicamente los 7 ultimos bits, estaríamos convirtiendo la red en dos redes: 
 
