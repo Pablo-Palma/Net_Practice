@@ -153,15 +153,18 @@ Para simplificar el proceso a la hora de buscar a que subred pertenece una ip, s
 - <details>
   <summary><strong>Level 6</strong></summary>
 
-  Contenido del nivel 6.
+  <img src="images/Level6.png" alt="Level 7 image" width="90%" height="90%">
 
   </details>
 
 - <details>
   <summary><strong>Level 7</strong></summary>
 
-  Contenido del nivel 7.
-  ![Level 7 image](images/Level7.png)
+  En este nivel, se da una conexión entre dos routers, cada uno de los cuales conecta con un host, ambas interfaces de R1 nos condicionan a dividir la red `105.198.14.0/24`, por lo que, para mí, lo más oportuno en este caso es dividirla en `4` subredes de `64` ip's aplicando una máscara `26`, usando la primera subred creada para conectar `A1` y `R1`, la última (entre 192 y 255) para conectar los routers, y la segunda o la tercera para conectar R2 y C1.
+  
+  En cuanto a la **Routing Table**, es los destinos se pueden dejar por defecto, lo importante es que el **Next Hop** de los routers se apunten entre sí, para intercambiar el tráfico, y ambos host deben apuntar al siguiente router.
+   
+  <img src="images/Level7.png" alt="Level 7 image" width="90%" height="90%">
 
   </details>
 
@@ -172,6 +175,18 @@ Para simplificar el proceso a la hora de buscar a que subred pertenece una ip, s
 
   </details>
 
+- <details>
+  <summary><strong>Level 9</strong></summary>
+
+  Contenido del nivel 9.
+
+  </details>
+- <details>
+  <summary><strong>Level 10</strong></summary>
+
+  Contenido del nivel 10.
+
+  </details>
 
 </details>
                                    
