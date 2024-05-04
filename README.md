@@ -129,6 +129,8 @@ Por eso te voy a facilitar los siguientes **Speed Tricks**.
 
 # Speed Tricks:
 
+Para simplificar el proceso a la hora de buscar a que subred pertenece una ip, sobretodo cuando el **group size** es pequeño puedes utilizar estos trucos:
+
     1. Multiplicar el **Group size** por **10**   EX: 8 * 10 = 80;    --->   .8
                                                                       --->  .80
                                                                       --->  .160  
@@ -139,6 +141,7 @@ Por eso te voy a facilitar los siguientes **Speed Tricks**.
                                                                       --->  .160
                                                                       
     3. Todos los grupos pasan por 128, asique podemos partir de este número para iniciar la búsqueda.
+    
     4. Todos los grupos pasan por el subnet Mask de su izquierda en la cheat sheet, asique es un buen momento 
     para hacer uso de esta, y en caso de pasarnos, empezar por un ip superior y restar el group size hasta encontrar el
     segmento al que pertenece nuestro ip objetivo.
