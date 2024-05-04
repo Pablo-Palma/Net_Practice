@@ -189,8 +189,27 @@ Para simplificar el proceso a la hora de buscar a que subred pertenece una ip, s
 - <details>
   <summary><strong>Level 10</strong></summary>
 
-  Contenido del nivel 10.
+  Last level!, no te asustes aonque parezca compliado es bastante sencillo, tenemos una red que conecta internet con un router, **R1**, este router conecta con una red que une los dos primeros host con un switch, por otro lado **R1** conecta con un segundo router **R2**, que conecta dos redes que desembocan en **Host 3** y **Host 4**.
 
+  La cuestión es que los host 1, 3 y 4 deben conectar a internet, pero internet, en su **Routing Table** solo tiene un `destino`, asique la logica nos lleva a hacer subnetting de la red en `140.45.158.0/24`, y establecer esta como destino(tanto en internet como en **R1**), así llegando a cualquier host que se albergue en el rango `0-255`.
+  dividamos el problema en subproblemas:
+
+  **step1. Conectar los dos primeros host**
+
+   nos condicionan con una máscara `/25` asique asignamos cuaqluier valor entre .0 y .255 ambos incluidos al último octeto.
+
+  **step2. Conexión entre routers**
+
+  nos condicionan con un `255.255.255.252` es decir `/30`es decir 4 ips, de las cuales, si excluimos la **Network id** y la **Broadcast id**, nos quedan dos, es decir las necesarias para conectar dos routers.
+  Esto es una buena práctica, no usar más ips de las requeridas.
+
+  **step3. Conectar los dos últimos host**
+
+   Conectar los Host 3 y 4 al Router 2, estamos condicionados por el router 3 a una máscara `255.255.255.192` que en CDIR es `/26`(**Group size** de 64 ip's), fijándonos en las ip´s que nos proporcionan estaríamos ocupando desde `.128` a `.192`.
+  por lo tanto para conectar el Host 4, si pusisiesemos también una máscara /26 ocuparíamos desde la `192` hasta `255`, y estaríamos haciendo **overlapping**, es decir se estaría solapando con la red `140.45.158.252/30`que hemos usado previamente como conexión entre routers.
+  Para soluccionar esto es tan sencillo como aplicar una máscara `/27`que ocupa 32 ips, y estableciendo estas en un rango entre `140.45.158.192` y `140.45.158.224`.
+
+   <img src="images/Level10.png" alt="Level 10 image" width="90%" height="90%">
   </details>
 
 </details>
