@@ -84,7 +84,7 @@ Crear esta tabla es realmente sencillo, especialmente si sigues estos pasos:
   
   **2.** La segunda fila la obtendrás de restar a 256 (ip's posibles), el **Group Size**.
   
-  **3.** Por ultimo comenzando desde la izquierda, desde ´/25´ porque estás cogiendo el primer bit del 4 octeto hasta el total de bits que caben en 4 bytes.
+  **3.** Por ultimo comenzando desde la izquierda, desde `/25` porque estás cogiendo el primer bit del 4 octeto hasta el total de bits que caben en 4 bytes.
 
 </details>
 <details>
@@ -123,9 +123,9 @@ Supongamos que queremos saber a que red pertenece la ip: ``10.2.2.199/26``
 
 Dividimos el octeto .255 en 4 secciones de 64 ips, y vemos entre que segmento se encuentra nuestra ip `10.2.2.199/26`, en este caso vemos que se encuentra en el cuarto segmento, entre `10.2.2.192` y `10.2.2.254`, por lo que este primero será **Network id** y el segundo **Broadcast id**, dejando `64 - 2` = `62` direcciones dispoibles, desde la **First id** hasta la **Last id**.
 
-Ahora que ya sabes resolver esto, puede resultarte incluso sencillo, pero puede resultar un proceso más lento cuando la red se divide en más subredes, por ejemplo si fuese un CDIR `/29`, Y tuviesemos qeu contanr desde `10.2.2.0` hasta `10.2.2.192` de 8 en 8.
+Ahora que ya sabes resolver esto, puede resultarte incluso sencillo, pero puede resultar un proceso más lento cuando la red se divide en más subredes, por ejemplo si fuese un CDIR `/29`, Y tuviesemos que contar desde `10.2.2.0` hasta `10.2.2.192` de 8 en 8.
 
-Por eso te voy a facilitar los siguientes
+Por eso te voy a facilitar los siguientes **Speed Tricks**.
 
 # Speed Tricks:
 
