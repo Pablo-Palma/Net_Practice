@@ -226,15 +226,29 @@ Para simplificar el proceso a la hora de buscar a qué subred pertenece una ip, 
 - <details>
   <summary><strong>Level 8</strong></summary>
 
-  En el nivel 8 tenemos dos routers conectados, el primero conecta con internet, y el segundo conecta a través de dos redes al host D y C.
-  
-  A mí entre routers me gusta usar una máscara de red `/30`, es decir 4 ips, de las cuales, si excluimos la **Network id** y la **Broadcast id**, nos quedan dos, es decir las necesarias para conectar dos routers, en este caso el **Next Hop** de **R2**, nos proporciona la ip de la interface R13, y para la de R21 podemos usar un valor por debajo.
-  
-  Por último, intenet solo tiene destino en una red: `158.46.67.0/26` asique haremos subnetting de esta, para conectar ambos host a internet. se nos proporciona una máscara `255.255.255.240`, es decir `/28`, que alberga 16 ips, esto es muy sencillo de comprobar con la **Cheat Sheet** que te proporcioné anteriormente.
-  
-  Asique para el Host D, podemos usar caulquier valor entre los 16 primeros ips, Network id y Broadcats ip excluidos, y para el Host C del `.17` hasta el `.30` si mantenemos la máscara `/28`, asegurandonos así que no hacemos **overlapping** con el rango que usamos para conectar los routers.
+    ### Descripción del Escenario
+  En el nivel 8, dos routers forman el núcleo de la configuración:
+  - **R1:** Conectado directamente a internet.
+  - **R2:** Conecta dos redes que a su vez conectan los hosts `D` y `C`.
 
-  No te ovlides de establecer el destino en la red de los host `158.46.67.0/26` y el **Next Hop** de internet en la interfaz del siguiente router.
+  ### Configuración de Conexión entre Routers
+  Se prefiere utilizar una máscara de red `/30` para la conexión entre routers, proporcionando 4 IPs:
+  - **ID de Red:** Excluida.
+  - **ID de Broadcast:** Excluida.
+  - **IPs Disponibles:** Dos, utilizadas para los interfaces de `R1` y `R2` respectivamente.
+  
+  El **Next Hop** de `R2` utiliza la IP de la interfaz `R13`, y la interfaz `R21` puede usar una IP menor dentro del mismo rango.
+
+  ### Subnetting y Conexión a Internet
+  Se realiza subnetting en la red `158.46.67.0/26` con una máscara `/28`, que proporciona 16 IPs por subred:
+  - **Para Host D:** Utiliza cualquiera de las primeras 16 IPs (excluyendo ID de red y broadcast).
+  - **Para Host C:** Ocupa el rango de `.17` a `.30` bajo la misma máscara `/28`, asegurando no solapar con el rango usado para los routers.
+
+  ### Rutas y Enrutamiento
+  - **Destino de la Red de Hosts:** `158.46.67.0/26`.
+  - **Next Hop de Internet:** Debe configurarse en la interfaz del siguiente router.
+
+  ![Diagrama del Nivel 8](images/Level8.png)
   
    <img src="images/Level8.png" alt="Level 8 image" width="90%" height="90%">
 
