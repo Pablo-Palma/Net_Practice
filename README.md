@@ -14,8 +14,8 @@ Bienvenidos a Net_Practice, un ejercicio destinado a dominar la configuración y
 
 #### Subcomponentes:
 - **Máscara de Subred:** Una combinación de bits que enmascara la dirección IP y divide los componentes de red y host.
-- **ID de Red:**  La parte de la dirección IP que identifica la red específica.
-- **ID de Host:** La parte de la dirección IP que identifica el dispositivo específico en la red.
+- **Network Id:**  La parte de la dirección IP que identifica la red específica.
+- **Host Id:** La parte de la dirección IP que identifica el dispositivo específico en la red.
 
 ### 2. IPv4 vs IPv6
 
