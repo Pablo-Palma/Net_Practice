@@ -1,4 +1,56 @@
+
+
+<details>
+<summary><strong>Mask Explanation</strong></summary>
+
+### Introducción a la Máscara de Subred
+
+**Contexto Inicial:**
+Suponemos que la ID de red (Network ID) abarca los tres primeros octetos y solo interactuamos con el último octeto que va desde `192.168.1.0` hasta `192.168.1.255`.
+
+**Detalles del Último Octeto:**
+Este último octeto consta de 8 bits, cada uno de los cuales puede ser `0` o `1`. Si todos los bits están activados (`11111111`), el resultado es `2^8 = 256`.
+
+**División de la IP:**
+La dirección IP puede dividirse en **Network ID** y **Host ID** usando la máscara de subred. Asignando una máscara en notación CIDR `/24`, estaríamos designando los tres primeros octetos (24 bits) para la **Network ID** y solo el último octeto para el host, cubriendo así un rango de `192.168.1.0` a `192.168.1.255` con 256 IPs posibles.
+
+### Subdivisión de la Red
+
+**Aplicación de la Máscara /25:**
+Podemos subdividir esta red en dos redes de igual tamaño usando una máscara `/25`, lo que deja libres solo los 7 últimos bits para el host. Esto convierte la red original en dos redes:
+
+- **Primera Red:** `192.168.1.0/25` que alberga 128 IPs desde `192.168.1.0` hasta `192.168.1.128`.
+- **Segunda Red:** `192.168.1.128/25` que alberga 128 IPs desde `192.168.1.128` hasta `192.168.1.255`.
+
+**Notación de la Subnet Mask:**
+Alternativamente, en lugar de usar la notación CIDR, podemos emplear la subnet mask directa `/25`, que corresponde a `255.255.255.128`. Esta máscara en binario es `11111111.11111111.11111111.10000000`, donde el primer bit `2^7 = 128` indica que cada segmento de red con esta máscara abarca 128 IPs posibles.
+
+![Imagen de Subnetting](images/mask.png)
+
+**Nota Adicional:**
+Dado que el proceso puede parecer complejo, se incluye un cheat sheet que facilita la conversión de CIDR a Subnet Mask en 60 segundos.
+
 </details>
+
+<details>
+<summary><strong>Cheat Sheet</strong></summary>
+
+### Cheat Sheet
+
+**Tabla de Conversión:**
+
+| Tamaño de Grupo | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
+|-----------------|-----|----|----|----|---|---|---|---|
+| Máscara de Subred | 128 | 192| 224| 240| 248| 252| 254| 255 |
+| CIDR             | /25 | /26| /27| /28| /29| /30| /31| /32 |
+
+**Pasos para Crear la Tabla:**
+1. **Primera fila:** Representa las potencias de 2, desde `2^7` hasta `2^0`.
+2. **Segunda fila:** Se obtiene restando a 256 (número total de IPs en un octeto), el tamaño de grupo correspondiente.
+3. **Cálculo CIDR:** Comenzando desde la izquierda, con `/25` tomando el primer bit del cuarto octeto hasta cubrir todos los bits posibles en cuatro octetos.
+
+</details>
+
 <details>
 <summary><strong>How to solve</strong></summary>
 
