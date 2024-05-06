@@ -1,5 +1,7 @@
 # Net_Practice
 
+![Net_Practice](https://github.com/TheLink-42/42-project-badges/blob/main/badges/netpracticen.png)
+
 Bienvenidos a Net_Practice, un ejercicio exhaustivo destinado a dominar la configuración y resolución de problemas de redes. Este README te guiará a través de los conceptos esenciales requeridos para navegar y tener éxito en este proyecto.
 
 <details>
