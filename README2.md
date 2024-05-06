@@ -173,10 +173,29 @@ Para simplificar el proceso a la hora de buscar a qué subred pertenece una ip, 
 - <details>
   <summary><strong>Level 6</strong></summary>
 
-   El nivel 6 presenta dos redes conectadas por un router, la primera parte de `internet` y la segunda pasando por un switch desemboca en `Host A`.
-  Nos condicionan que en esta segunda red usaremos una máscara `255.255.255.128` es decir `/25` y la interfaz del host en `110.98.32.227`, por lo que estamos diviendo la red `110.98.32.0/24` en dos grupos de 128 y vamos a usar el segundo, por lo que cualquier valor entre `110.98.32.128`(Network Id) y `110.98.32.255`(Broadcast Id), estos no incluidos, nos valdria para la interfaz del router.
+     ## Nivel 6: Configuración de Redes con Router
+  
+  ### Estructura de la Red
+  El nivel 6 involucra dos redes conectadas por un router:
+  - **Primera red:** Directamente conectada a `internet`.
+  - **Segunda red:** Conectada a través de un switch, terminando en `Host A`.
+  
+  ### Configuración de la Segunda Red
+  Para la segunda red, se aplican las siguientes configuraciones:
+  - **Máscara de Subred:** `255.255.255.128` (`/25`)
+  - **Dirección IP de Host A:** `110.98.32.227`
+  
+  ### División de la Red
+  La red `110.98.32.0/24` se divide en dos grupos de 128 direcciones IP cada uno. Utilizaremos el segundo grupo, que comprende:
+  - **ID de Red:** `110.98.32.128`
+  - **ID de Broadcast:** `110.98.32.255`
+  
+  Las direcciones válidas para la interfaz del router están entre `110.98.32.129` y `110.98.32.254`, excluyendo los IDs de red y broadcast.
+  
+  ### Objetivo Clave
+  Es crucial asegurarse de que el destino del tráfico de internet esté configurado para apuntar a la red `110.98.32.128/25` para facilitar el flujo adecuado del tráfico.
 
-  Lo importante en este nivel es que el destino del internet apunte a esta red (`110.98.32.128/25`) para permitir el tráfico.
+
   
   <img src="images/Level6.png" alt="Level 6 image" width="85%" height="85%">
 
