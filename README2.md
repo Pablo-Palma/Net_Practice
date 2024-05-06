@@ -289,25 +289,20 @@ Para simplificar el proceso a la hora de buscar a qué subred pertenece una ip, 
 - <details>
   <summary><strong>Level 10</strong></summary>
 
-  Last level!, no te asustes aonque parezca compliado es bastante sencillo, tenemos una red que conecta internet con un router, **R1**, este router conecta con una red que une los dos primeros host con un switch, por otro lado **R1** conecta con un segundo router **R2**, que conecta dos redes que desembocan en **Host 3** y **Host 4**.
+  ### Descripción General
+  Último nivel! No es tan complicado como parece. Tenemos un esquema donde el router **R1** conecta internet con los dos primeros hosts a través de un switch, y también conecta con otro router, **R2**, que a su vez conecta dos redes que terminan en **Host 3** y **Host 4**.
 
-  La cuestión es que los host 1, 3 y 4 deben conectar a internet, pero internet, en su **Routing Table** solo tiene un `destino`, asique la logica nos lleva a hacer subnetting de la red en `140.45.158.0/24`, y establecer esta como destino(tanto en internet como en **R1**), así llegando a cualquier host que se albergue en el rango `0-255`.
-  dividamos el problema en subproblemas:
+  La clave aquí es que los hosts 1, 3 y 4 deben conectarse a internet, pero la tabla de enrutamiento de internet solo reconoce un `destino` para todo el rango `140.45.158.0/24`.
 
-  **step1. Conectar los dos primeros host**
+  ### Paso 1: Conexión de los Primeros Dos Hosts
+  - Se asigna una máscara `/25`, permitiendo IPs en el último octeto desde `.0` a `.128`.
 
-   nos condicionan con una máscara `/25` asique asignamos cuaqluier valor entre .0 y .255 ambos incluidos al último octeto.
+  ### Paso 2: Conexión entre Routers R1 y R2
+  - Se establece una máscara `/30` (`255.255.255.252`), lo que nos deja 4 IPs, dos de las cuales son efectivamente útiles después de excluir la **Network ID** y la **Broadcast ID**.
 
-  **step2. Conexión entre routers**
+  ### Paso 3: Conexión de los Últimos Dos Hosts
+  - Hosts 3 y 4 se conectan a **R2** bajo una máscara `255.255.255.192` (`/26`), ocupando desde `.128` a `.192`.
+  - Para evitar solapamientos con la red `140.45.158.252/30` usada entre R1 y R2, aplicamos para el Host 4 una máscara `/27` que cubre 32 IPs, usando el rango `140.45.158.192` a `140.45.158.224`.
 
-  nos condicionan con un `255.255.255.252` es decir `/30`es decir 4 ips, de las cuales, si excluimos la **Network id** y la **Broadcast id**, nos quedan dos, es decir las necesarias para conectar dos routers.
-  Esto es una buena práctica, no usar más ips de las requeridas.
-
-  **step3. Conectar los dos últimos host**
-
-   Conectar los Host 3 y 4 al Router 2, estamos condicionados por el router 3 a una máscara `255.255.255.192` que en CDIR es `/26`(**Group size** de 64 ip's), fijándonos en las ip´s que nos proporcionan estaríamos ocupando desde `.128` a `.192`.
-  por lo tanto para conectar el Host 4, si pusisiesemos también una máscara /26 ocuparíamos desde la `192` hasta `255`, y estaríamos haciendo **overlapping**, es decir se estaría solapando con la red `140.45.158.252/30`que hemos usado previamente como conexión entre routers.
-  Para soluccionar esto es tan sencillo como aplicar una máscara `/27`que ocupa 32 ips, y estableciendo estas en un rango entre `140.45.158.192` y `140.45.158.224`.
-
-   <img src="images/Level10.png" alt="Level 10 image" width="90%" height="90%">
-</details                             
+  ![Diagrama del Nivel 10](images/Level10.png)
+</details>                            
