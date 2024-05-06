@@ -204,11 +204,22 @@ Para simplificar el proceso a la hora de buscar a qué subred pertenece una ip, 
 - <details>
   <summary><strong>Level 7</strong></summary>
 
-  En este nivel, se da una conexión entre dos routers, cada uno de los cuales conecta con un host, ambas interfaces de R1 nos condicionan a dividir la red `105.198.14.0/24`, por lo que, para mí, lo más oportuno en este caso es dividirla en `4` subredes de `64` ip's aplicando una máscara `26`, usando la primera subred creada para conectar `A1` y `R1`, la última (entre 192 y 255) para conectar los routers, y la segunda o la tercera para conectar R2 y C1.
-  
-  En cuanto a la **Routing Table**, es los destinos se pueden dejar por defecto, lo importante es que el **Next Hop** de los routers se apunten entre sí, para intercambiar el tráfico, y ambos host deben apuntar al siguiente router.
-   
-  <img src="images/Level7.png" alt="Level 7 image" width="90%" height="90%">
+  ### Descripción del Escenario
+  Este nivel involucra la configuración de una conexión entre dos routers, cada uno conectando un host. Se requiere dividir la red `105.198.14.0/24`.
+
+  ### División de la Red
+  Para una organización eficiente, la red se divide en `4` subredes de `64` IPs cada una, utilizando una máscara de subred `/26`:
+  - **Primera Subred:** Utilizada para conectar `A1` y `R1` (Direcciones entre .0 y .64).
+  - **Última Subred:** (Direcciones entre .192 y .255) Usada para conectar los dos routers.
+  - **Segunda o Tercera Subred:** Para conectar `R2` y `C1`. (Direcciones entre .64 y .192).
+ 
+  Es esencial evitar el `overlapping`.
+
+  ### Configuración de la Tabla de Enrutamiento
+  - **Destinos:** Los destinos pueden configurarse con los valores por defecto.
+  - **Next Hop:** Es crucial que el `Next Hop` en los routers esté configurado para apuntarse entre sí, permitiendo un intercambio eficiente de tráfico. Los hosts deben apuntar al router siguiente.
+
+  ![Diagrama del Nivel 7](images/Level7.png)
 
   </details>
 
