@@ -47,11 +47,6 @@ Ahora que sabes crear tu propio **Cheat Sheet**, y conoces los conceptos necesar
   - Se encuentra dentro de la cuarta subred (`10.2.2.192` a `10.2.2.254`).
   - **Disponibilidad de Direcciones:** `64 - 2 = 62` direcciones, desde la `First ID` hasta la `Last ID`.
 
-#### **Paso 3: Consideraciones para Subnetting más Detallado**
 
-- **Reto con subredes menores:** Si se utilizara un CIDR `/29`, el proceso implicaría contar de 8 en 8 desde `10.2.2.0` hasta `10.2.2.192`.
-
-#### **Speed Tricks para Facilitar el Proceso**
-
-Estos trucos de velocidad te ayudarán a manejar subnets más pequeñas de manera más eficiente, especialmente útiles cuando la red se divide en más subredes y necesitas ubicar rápidamente la posición de una IP específica dentro de esta estructura.
+- **Reto con subredes menores:** Si se utilizara un CIDR `/29`, el proceso implicaría contar de 8 en 8 desde `10.2.2.0` hasta `10.2.2.192`, lo que puede resultar en un proceso realmente lento y aburrido por eso voy a presentarte en el siguinte apartado unos **Speed Tricks**.
 
