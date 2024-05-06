@@ -82,9 +82,9 @@ Dado que el proceso puede parecer complejo, se incluye un cheat sheet que facili
 
 ### Cheat Sheet
 
-La forma de interpretar esta **Tabla de Conversión** es la siguiente, cuando queremos descubrir a que red pertenece una ip, por ejemplo `255.255.255.192/26`, observamos que tiene una máscara `CDIR` `/26`, equivalente a `Subnet Mask` `192`, lo que nos indica que estamos dividiendo el 4 octeto en **Group Size** de 64 ips.
+La forma de interpretar esta **Tabla de Conversión** es la siguiente, cuando queremos descubrir a que red pertenece una ip, por ejemplo `255.255.255.192/26`, observamos que tiene una máscara `CDIR` `/26`, equivalente a `Subnet Mask` `192`, lo que nos indica que estamos dividiendo el 4º octeto en **Group Sizes** de 64 ips.
 
-de aqui deducimos que son 4 subredes: `255 / 64` = `4`.
+De esta forma deducimos que son 4 subredes: `255 / 64` = `4`.
 Con esta tabla y una serie de **steps** que te explicaré en **How to solve** podrás resolver cualquiér problema de subnetting en menos de 60 segundos, pero primero te explicaré como crear esta tabla desde cero.
 
 | Tamaño de Grupo | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
