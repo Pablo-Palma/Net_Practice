@@ -12,7 +12,7 @@ Al `Maestro` lo hace la practica, asique para practicar este ejercicio, sigue es
 
 1. **Clona el repositorio:**
    ```bash
-   git clone [URL_DEL_REPOSITORIO]
+   git clone git@github.com:Pablo-Palma/Net_Practice.git
    ```
 
 2. **Entra en el directorio que contiene el `index.html`:**
