@@ -1,6 +1,12 @@
 # Net_Practice
 
-Bienvenidos a Net_Practice, un ejercicio destinado a dominar la configuración y resolución de problemas de redes. Este README te guiará a través de los conceptos esenciales requeridos para navegar y tener éxito en este proyecto.
+<p align="center">
+  <img src="https://github.com/ayogun/42-project-badges/blob/main/badges/netpracticem.png" alt="Net Practice">
+</p>
+
+Bienvenidos a Net_Practice, un ejercicio destinado a dominar la configuración y resolución de problemas de redes. Este README te guiará a través de los conceptos esenciales requeridos para conectar dispositivos en un misma red, dividir redes y conectarlas para tener éxito en este proyecto.
+
+Esta guía cubre los aspectos esenciales y es un buen inicio para convertirte en un `Master` de las redes, pero al `maestro` lo hace la práctica, y aonque yo facilite una serie de **Conceptos** que te facilitarán el proceso de aprendizaje y te harán optimizar al máximo tu tiempo y una **Cheat Sheet**  que te ayudará a resolver cualquier problema de `Subnetting` en menos de `60` segundos, será esta quien te convertirá en un verdadero **Master**.
 
 <details>
 <summary><strong>Concepts</strong></summary>
@@ -75,7 +81,7 @@ Dado que el proceso puede parecer complejo, se incluye un cheat sheet que facili
 
 </details>
 
-<details>
+<details >
 <summary><strong>Cheat Sheet</strong></summary>
 
 ### Cheat Sheet
