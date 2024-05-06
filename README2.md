@@ -70,8 +70,6 @@ Podemos subdividir esta red en dos redes de igual tamaño usando una máscara `/
 **Notación de la Subnet Mask:**
 Alternativamente, en lugar de usar la notación CIDR, podemos emplear la subnet mask directa `/25`, que corresponde a `255.255.255.128`. Esta máscara en binario es `11111111.11111111.11111111.10000000`, donde el primer bit `2^7 = 128` indica que cada segmento de red con esta máscara abarca 128 IPs posibles.
 
-![Imagen de Subnetting](images/mask.png)
-
 **Nota Adicional:**
 Dado que el proceso puede parecer complejo, se incluye un cheat sheet que facilita la conversión de CIDR a Subnet Mask en 60 segundos.
 
@@ -115,6 +113,7 @@ Primero abordemos una serie de conceptos :
    - **Last id**:  última ip util, la obtenemos restando uno a la **Broadcast id**
    - **Broadcast id**: Dirección de red utilizada para transmitir a todos los dispositivos conectados a una red de comunicaciones de acceso múltiple.
 
+![Imagen de Subnetting](images/mask.png)
 
 Ahora que sabes crear tu propio **Cheat Sheet**, y conoces los conceptos necesarios, no hay escusas, podrás resolver cualquier problema de **Subnetting** en menos de 60 segundos siguiendo estos pasos:
 
