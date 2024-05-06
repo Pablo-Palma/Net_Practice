@@ -166,3 +166,95 @@ Para simplificar el proceso a la hora de buscar a qué subred pertenece una ip, 
 **4. Todos los grupos pasan por la subnet mask de su izquierda en la cheat sheet**, por lo tanto, es un buen momento para hacer uso de esta, y en caso de pasarnos, empezar por una ip superior y restar el GROUP SIZE hasta encontrar el segmento al que pertenece nuestra ip objetivo.
 
 
+<details>
+<summary><strong>Levels</strong></summary>
+
+- <details>
+  <summary><strong>Level 6</strong></summary>
+
+   El nivel 6 presenta dos redes conectadas por un router, la primera parte de `internet` y la segunda pasando por un switch desemboca en `Host A`.
+  Nos condicionan que en esta segunda red usaremos una máscara `255.255.255.128` es decir `/25` y la interfaz del host en `110.98.32.227`, por lo que estamos diviendo la red `110.98.32.0/24` en dos grupos de 128 y vamos a usar el segundo, por lo que cualquier valor entre `110.98.32.128`(Network Id) y `110.98.32.255`(Broadcast Id), estos no incluidos, nos valdria para la interfaz del router.
+
+  Lo importante en este nivel es que el destino del internet apunte a esta red (`110.98.32.128/25`) para permitir el tráfico.
+  
+  <img src="images/Level6.png" alt="Level 6 image" width="85%" height="85%">
+
+  </details>
+
+- <details>
+  <summary><strong>Level 7</strong></summary>
+
+  En este nivel, se da una conexión entre dos routers, cada uno de los cuales conecta con un host, ambas interfaces de R1 nos condicionan a dividir la red `105.198.14.0/24`, por lo que, para mí, lo más oportuno en este caso es dividirla en `4` subredes de `64` ip's aplicando una máscara `26`, usando la primera subred creada para conectar `A1` y `R1`, la última (entre 192 y 255) para conectar los routers, y la segunda o la tercera para conectar R2 y C1.
+  
+  En cuanto a la **Routing Table**, es los destinos se pueden dejar por defecto, lo importante es que el **Next Hop** de los routers se apunten entre sí, para intercambiar el tráfico, y ambos host deben apuntar al siguiente router.
+   
+  <img src="images/Level7.png" alt="Level 7 image" width="90%" height="90%">
+
+  </details>
+
+- <details>
+  <summary><strong>Level 8</strong></summary>
+
+  En el nivel 8 tenemos dos routers conectados, el primero conecta con internet, y el segundo conecta a través de dos redes al host D y C.
+  
+  A mí entre routers me gusta usar una máscara de red `/30`, es decir 4 ips, de las cuales, si excluimos la **Network id** y la **Broadcast id**, nos quedan dos, es decir las necesarias para conectar dos routers, en este caso el **Next Hop** de **R2**, nos proporciona la ip de la interface R13, y para la de R21 podemos usar un valor por debajo.
+  
+  Por último, intenet solo tiene destino en una red: `158.46.67.0/26` asique haremos subnetting de esta, para conectar ambos host a internet. se nos proporciona una máscara `255.255.255.240`, es decir `/28`, que alberga 16 ips, esto es muy sencillo de comprobar con la **Cheat Sheet** que te proporcioné anteriormente.
+  
+  Asique para el Host D, podemos usar caulquier valor entre los 16 primeros ips, Network id y Broadcats ip excluidos, y para el Host C del `.17` hasta el `.30` si mantenemos la máscara `/28`, asegurandonos así que no hacemos **overlapping** con el rango que usamos para conectar los routers.
+
+  No te ovlides de establecer el destino en la red de los host `158.46.67.0/26` y el **Next Hop** de internet en la interfaz del siguiente router.
+  
+   <img src="images/Level8.png" alt="Level 8 image" width="90%" height="90%">
+
+  </details>
+
+- <details>
+  <summary><strong>Level 9</strong></summary>
+
+  Este nivel presenta tres redes que deben conectarse a internet, Host A y B, que deben conecarse entre sí, y a R1 a través de un switch, por lo que los albergaremos en una misma red. una red que conecta los routers, R1 y R2, este último conecta dos redes una que concluye en Host D y otra en Host C.
+
+  Será sencillo si dividimos el problema en pequeñas fracciones.
+
+  **step1. Conectar los host C y D**
+  - Se nos impone la IP de la interfaz R23, ya que es el **Next Hop** de la **Routing Table** de D1, con una máscara de `/18`, si nos fijamos en el **Cheat Sheet**, nos será fácil descubrir que el **Group size** es de 64 IP's, en el 3º octeto, así que dado que la IP de la interfaz R23 es `94.8.218.81`, sabemos que la **Network id** es: `94.8.192.0/18` y la **Broadcast id** es `94.8.255.255/18` y cualquier valor entre estos nos valdría.
+  - Para conectar el Host C, puedes establecer cualquier IP de tu elección, y cualquier máscara de red, nosotros para hacerlo sencillo elegiremos `42.24.42.0/25`, dividiendo la red en dos subredes de '128', y utilizaremos la primera.
+
+  **step2. Conectar los dos Routers**
+  - Como venimos practicando, se establece una máscara CDIR `/30`, que contiene 4 IPs de las cuales dos son útiles, para mantenerlo sencillo podríamos elegir cubrir las 4 primeras IPs de cualquier red a tu elección, en este caso elegimos: `192.32.4.0/30`.
+  - He aquí la cuestión de este nivel, conectar las **Routing Table**, cada Router **Next Hop** debe apuntar al siguiente router, pero en el destino del primero, debemos apuntar tanto a la red del Host C (Para conectarlo a internet), como a la red del Host D para conectarlo con Host A.
+
+  **step3. Conectar los Host A y B**
+  - Tenemos 3 dispositivos, en una misma red, lo único importante es que en ambos Host, el Next Hop apunte a la interfaz de R11, en este caso hemos elegido esta red `33.63.9.0/25`.
+
+  **step4. Routing Table de internet**
+  - El Next Hop está configurado a la interfaz del router, bastaría con configurar dos destinos a las redes del Host C, `42.24.42.0/25` y la red que conecta A y B `33.63.9.0/25`, que son lo que no se piden que conecte a internet.  
+  
+   <img src="images/Level9.png" alt="Level 9 image" width="90%" height="90%">
+  </details>
+
+- <details>
+  <summary><strong>Level 10</strong></summary>
+
+  Last level!, no te asustes aonque parezca compliado es bastante sencillo, tenemos una red que conecta internet con un router, **R1**, este router conecta con una red que une los dos primeros host con un switch, por otro lado **R1** conecta con un segundo router **R2**, que conecta dos redes que desembocan en **Host 3** y **Host 4**.
+
+  La cuestión es que los host 1, 3 y 4 deben conectar a internet, pero internet, en su **Routing Table** solo tiene un `destino`, asique la logica nos lleva a hacer subnetting de la red en `140.45.158.0/24`, y establecer esta como destino(tanto en internet como en **R1**), así llegando a cualquier host que se albergue en el rango `0-255`.
+  dividamos el problema en subproblemas:
+
+  **step1. Conectar los dos primeros host**
+
+   nos condicionan con una máscara `/25` asique asignamos cuaqluier valor entre .0 y .255 ambos incluidos al último octeto.
+
+  **step2. Conexión entre routers**
+
+  nos condicionan con un `255.255.255.252` es decir `/30`es decir 4 ips, de las cuales, si excluimos la **Network id** y la **Broadcast id**, nos quedan dos, es decir las necesarias para conectar dos routers.
+  Esto es una buena práctica, no usar más ips de las requeridas.
+
+  **step3. Conectar los dos últimos host**
+
+   Conectar los Host 3 y 4 al Router 2, estamos condicionados por el router 3 a una máscara `255.255.255.192` que en CDIR es `/26`(**Group size** de 64 ip's), fijándonos en las ip´s que nos proporcionan estaríamos ocupando desde `.128` a `.192`.
+  por lo tanto para conectar el Host 4, si pusisiesemos también una máscara /26 ocuparíamos desde la `192` hasta `255`, y estaríamos haciendo **overlapping**, es decir se estaría solapando con la red `140.45.158.252/30`que hemos usado previamente como conexión entre routers.
+  Para soluccionar esto es tan sencillo como aplicar una máscara `/27`que ocupa 32 ips, y estableciendo estas en un rango entre `140.45.158.192` y `140.45.158.224`.
+
+   <img src="images/Level10.png" alt="Level 10 image" width="90%" height="90%">
+</details                             
