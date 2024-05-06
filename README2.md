@@ -289,36 +289,36 @@ To simplify the process when searching for which subnet an IP belongs to, especi
   <summary><strong>Level 9</strong></summary>
 
   
-  ### General Description
-  This level presents the task of connecting three networks to the internet, with specific approaches for Hosts A and B, and for Hosts C and D, coordinated through two routers, R1 and R2.
-
-  ### Step 1: Connection of Hosts C and D
-  - **IP of the R23 interface:** `94.8.218.81` with a `/18` mask.
-  - **Network D Range:** 
-    - **Network ID:** `94.8.192.0/18`
-    - **Broadcast ID:** `94.8.255.255/18`
-  - **Network C Range:** 
-    - You can set any valid IP of your choice for **Host C**. To simplify, the network `42.24.42.0/25` will be used, dividing it into two subnets of 128 IPs each, and the first will be used for **Host C**, giving you free choice among the values of:
-      - **Network ID:** `42.24.42.0/25`
-      - **Broadcast ID:** `42.24.42.128/25`  
-
-  ### Step 2: Connection of the Two Routers
-  - **CDIR `/30` Mask Configuration for R1 and R2:** This setup provides 4 IPs, two of which are useful.
-  - **Example Network:** `192.32.4.0/30`.
-  - It is essential that each Router points its **Next Hop** to the other router. Additionally, the destination in the first router must include both the network of `Host C`
-
- for access to `internet` and that of `Host D` for the connection with `Host A`.
-
-  ### Step 3: Connection of Hosts A and B
-  - Three devices are connected in the same network `33.63.9.0/25`.
-  - It is important that the **Next Hop** in both Hosts A and B point to the interface of R11.
-
-  ### Step 4: Configuration of the Internet Routing Table
-  - **Next Hop:** Configured to point to the interface of the router.
-  - **Destinations:** Must be set to include the networks of Host C `42.24.42.0/25` and the network connecting A and B `33.63.9.0/25`, which are essential for the connection to the internet.
-
-  ![Level 9 Diagram](images/Level9.png)
+    ### General Description
+    This level presents the task of connecting three networks to the internet, with specific approaches for Hosts A and B, and for Hosts C and D, coordinated through two routers, R1 and R2.
   
+    ### Step 1: Connection of Hosts C and D
+    - **IP of the R23 interface:** `94.8.218.81` with a `/18` mask.
+    - **Network D Range:** 
+      - **Network ID:** `94.8.192.0/18`
+      - **Broadcast ID:** `94.8.255.255/18`
+    - **Network C Range:** 
+      - You can set any valid IP of your choice for **Host C**. To simplify, the network `42.24.42.0/25` will be used, dividing it into two subnets of 128 IPs each, and the first will be used for **Host C**, giving you free choice among the values of:
+        - **Network ID:** `42.24.42.0/25`
+        - **Broadcast ID:** `42.24.42.128/25`  
+  
+    ### Step 2: Connection of the Two Routers
+    - **CDIR `/30` Mask Configuration for R1 and R2:** This setup provides 4 IPs, two of which are useful.
+    - **Example Network:** `192.32.4.0/30`.
+    - It is essential that each Router points its **Next Hop** to the other router. Additionally, the destination in the first router must include both the network of `Host C`
+  
+   for access to `internet` and that of `Host D` for the connection with `Host A`.
+  
+    ### Step 3: Connection of Hosts A and B
+    - Three devices are connected in the same network `33.63.9.0/25`.
+    - It is important that the **Next Hop** in both Hosts A and B point to the interface of R11.
+  
+    ### Step 4: Configuration of the Internet Routing Table
+    - **Next Hop:** Configured to point to the interface of the router.
+    - **Destinations:** Must be set to include the networks of Host C `42.24.42.0/25` and the network connecting A and B `33.63.9.0/25`, which are essential for the connection to the internet.
+  
+    ![Level 9 Diagram](images/Level9.png)
+    
   </details>
 
 - <details>
@@ -349,4 +349,4 @@ To simplify the process when searching for which subnet an IP belongs to, especi
   Feel free to contact me if you have any questions or would like to contribute improvements, greetings.
 
   Pablo Palma.
-</details>
+  </details>
