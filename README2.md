@@ -206,31 +206,31 @@ To simplify the process when searching for which subnet an IP belongs to, especi
 
      ## Level 6: Network Configuration with Router
   
-  ### Network Structure
-  Level 6 involves two networks connected by a router:
-  - **First network:** Directly connected to `internet`.
-  - **Second network:** Connected through a switch, ending at `Host A`.
+    ### Network Structure
+    Level 6 involves two networks connected by a router:
+    - **First network:** Directly connected to `internet`.
+    - **Second network:** Connected through a switch, ending at `Host A`.
+    
+    ### Configuration of the Second Network
+    For the second network, the following configurations are applied:
+    - **Subnet Mask:** `255.255.255.128` (`/25`)
+    - **IP Address of Host A:** `110.98.32.227`
+    
+    ### Division of the Network
+    The network `110.98.32.0/24` is divided into two groups of 128 IP addresses each. We will use the second group, which includes:
+    - **Network ID:** `110.98.32.128`
+    - **Broadcast ID:** `110.98.32.255`
+    
+    The valid addresses for the router interface are between `110.98.32.129` and `110.98.32.254`, excluding the Network and Broadcast IDs.
+    
+    ### Key Objective
+    It
   
-  ### Configuration of the Second Network
-  For the second network, the following configurations are applied:
-  - **Subnet Mask:** `255.255.255.128` (`/25`)
-  - **IP Address of Host A:** `110.98.32.227`
+   is crucial to ensure that the destination of internet traffic is configured to point to the network `110.98.32.128/25` to facilitate proper traffic flow.
   
-  ### Division of the Network
-  The network `110.98.32.0/24` is divided into two groups of 128 IP addresses each. We will use the second group, which includes:
-  - **Network ID:** `110.98.32.128`
-  - **Broadcast ID:** `110.98.32.255`
   
-  The valid addresses for the router interface are between `110.98.32.129` and `110.98.32.254`, excluding the Network and Broadcast IDs.
-  
-  ### Key Objective
-  It
-
- is crucial to ensure that the destination of internet traffic is configured to point to the network `110.98.32.128/25` to facilitate proper traffic flow.
-
-
-  
-  ![Level 6 Diagram](images/Level6.png)
+    
+    ![Level 6 Diagram](images/Level6.png)
 
   </details>
 
