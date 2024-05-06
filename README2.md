@@ -4,9 +4,33 @@
   <img src="https://github.com/ayogun/42-project-badges/blob/main/badges/netpracticem.png" alt="Net Practice">
 </p>
 
-Bienvenidos a Net_Practice, un ejercicio destinado a dominar la configuración y resolución de problemas de redes. Este README te guiará a través de los conceptos esenciales requeridos para conectar dispositivos en un misma red, dividir redes y conectarlas para tener éxito en este proyecto.
+Bienvenidos a **Net_Practice**, un ejercicio destinado a dominar la configuración y resolución de problemas de redes. Este README te guiará a través de los conceptos esenciales requeridos para conectar dispositivos en un misma red, dividir redes y conectarlas para tener éxito en este proyecto.
 
-Esta guía cubre los aspectos esenciales y es un buen inicio para convertirte en un `Master` de las redes, pero al `maestro` lo hace la práctica, y aonque yo facilite una serie de **Conceptos** que te facilitarán el proceso de aprendizaje y te harán optimizar al máximo tu tiempo y una **Cheat Sheet**  que te ayudará a resolver cualquier problema de `Subnetting` en menos de `60` segundos, será esta quien te convertirá en un verdadero **Master**.
+### How to Practice
+
+Al `Maestro` lo hace la practica, asique para practicar este ejercicio, sigue estos pasos:
+
+1. **Clona el repositorio:**
+   ```bash
+   git clone [URL_DEL_REPOSITORIO]
+   ```
+
+2. **Entra en el directorio que contiene el `index.html`:**
+   ```bash
+   cd Net_Practice/net_practice
+   ```
+
+3. **Lanza el archivo con:**
+   ```bash
+   open index.html
+   ```
+
+Esto abrirá en tu navegador una web con una serie de niveles interactivos. Deberás introducir tu nombre o apodo e ir superando uno a uno estos niveles hasta llegar al máximo nivel.
+
+Si ya tienes cierta soltura, puedes dejar el nombre vacío y te saldrán `3` niveles aleatorios del `6` al `10`, para que puedas ponerte a prueba.
+
+Te recomiendo comenzar entendiendo los **Concepts** y como funciona el protocolo **TCP/IP addressing** y echar un vistazo al **Cheat Sheet** y los **Speed tricks** que te proporciono para que puedas llevar tus habilidades al siguiente nivel.
+
 
 <details>
 <summary><strong>Concepts</strong></summary>
