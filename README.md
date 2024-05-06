@@ -186,16 +186,34 @@ Para simplificar el proceso a la hora de buscar a que subred pertenece una ip, s
 
   No te ovlides de establecer el destino en la red de los host `158.46.67.0/26` y el **Next Hop** de internet en la interfaz del siguiente router.
   
-   <img src="images/Level8.png" alt="Level 9 image" width="90%" height="90%">
+   <img src="images/Level8.png" alt="Level 8 image" width="90%" height="90%">
 
   </details>
 
 - <details>
   <summary><strong>Level 9</strong></summary>
 
-  Contenido del nivel 9.
+  Este nivel presenta tres redes que deben conectarse a internet, Host A y B, que deben conecarse entre sí, y a R1 a través de un switch, por lo que los albergaremos en una misma red. una red que conecta los routers, R1 y R2, este último conecta dos redes una que concluye en Host D y otra en Host C.
 
+  Será sencillo si dividimos el problema en pequeñas fracciones.
+
+  **step1. Conectar los host C y D**
+  - Se nos impone la IP de la interfaz R23, ya que es el **Next Hop** de la **Routing Table** de D1, con una máscara de `/18`, si nos fijamos en el **Cheat Sheet**, nos será fácil descubrir que el **Group size** es de 64 IP's, en el 3º octeto, así que dado que la IP de la interfaz R23 es `94.8.218.81`, sabemos que la **Network id** es: `94.8.192.0/18` y la **Broadcast id** es `94.8.255.255/18` y cualquier valor entre estos nos valdría.
+  - Para conectar el Host C, puedes establecer cualquier IP de tu elección, y cualquier máscara de red, nosotros para hacerlo sencillo elegiremos `42.24.42.0/25`, dividiendo la red en dos subredes de '128', y utilizaremos la primera.
+
+  **step2. Conectar los dos Routers**
+  - Como venimos practicando, se establece una máscara CDIR `/30`, que contiene 4 IPs de las cuales dos son útiles, para mantenerlo sencillo podríamos elegir cubrir las 4 primeras IPs de cualquier red a tu elección, en este caso elegimos: `192.32.4.0/30`.
+  - He aquí la cuestión de este nivel, conectar las **Routing Table**, cada Router **Next Hop** debe apuntar al siguiente router, pero en el destino del primero, debemos apuntar tanto a la red del Host C (Para conectarlo a internet), como a la red del Host D para conectarlo con Host A.
+
+  **step3. Conectar los Host A y B**
+  - Tenemos 3 dispositivos, en una misma red, lo único importante es que en ambos Host, el Next Hop apunte a la interfaz de R11, en este caso hemos elegido esta red `33.63.9.0/25`.
+
+  **step4. Routing Table de internet**
+  - El Next Hop está configurado a la interfaz del router, bastaría con configurar dos destinos a las redes del Host C, `42.24.42.0/25` y la red que conecta A y B `33.63.9.0/25`, que son lo que no se piden que conecte a internet.  
+  
+   <img src="images/Level9.png" alt="Level 9 image" width="90%" height="90%">
   </details>
+
 - <details>
   <summary><strong>Level 10</strong></summary>
 
@@ -220,7 +238,4 @@ Para simplificar el proceso a la hora de buscar a que subred pertenece una ip, s
   Para soluccionar esto es tan sencillo como aplicar una máscara `/27`que ocupa 32 ips, y estableciendo estas en un rango entre `140.45.158.192` y `140.45.158.224`.
 
    <img src="images/Level10.png" alt="Level 10 image" width="90%" height="90%">
-  </details>
-
-</details>
-                                   
+</details                             
