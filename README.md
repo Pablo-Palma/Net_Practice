@@ -335,4 +335,13 @@ Para simplificar el proceso a la hora de buscar a qué subred pertenece una ip, 
   - Para evitar solapamientos con la red `140.45.158.252/30` usada entre R1 y R2, aplicamos para el Host 4 una máscara `/27` que cubre 32 IPs, usando el rango `140.45.158.192` a `140.45.158.224`.
 
   ![Diagrama del Nivel 10](images/Level10.png)
+
+  Si has llegado hasta aquí, supongo que, eres de ese tipo de persona que comienza un libro por la última página o qué te ha sido útil esta guía.
+  
+  Enhorabuena!, estás a un paso de convertirte en un `master` del `Networking` y ese paso es la práctica.
+  Si te ha servido esta guía no dudes en darle una estrella al repo para consultarlo más adelante y compartirlo con tus amigos para que también se conviertan en unos `Masters!`.
+
+  No dudes en contactarme si te ha quedado alguna duda o quieres aportar mejoras, un saludo.
+
+  Pablo Palma.
 </details>                            
