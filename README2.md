@@ -1,4 +1,22 @@
-### **Steps para averiguar a  Qué Red Pertenece una IP**.
+</details>
+<details>
+<summary><strong>How to solve</strong></summary>
+
+
+# How to solve
+
+Primero abordemos una serie de conceptos :
+  # Concepts:
+
+   - **Network id**: La parte de la dirección IP que identifica la red específica.
+   - **First id**: Primera ip util, la obtenemos sumando uno a la **Network id**
+   - **Last id**:  última ip util, la obtenemos restando uno a la **Broadcast id**
+   - **Broadcast id**: Dirección de red utilizada para transmitir a todos los dispositivos conectados a una red de comunicaciones de acceso múltiple.
+
+
+Ahora que sabes crear tu propio **Cheat Sheet**, y conoces los conceptos necesarios, no hay escusas, podrás resolver cualquier problema de **Subnetting** en menos de 60 segundos siguiendo estos pasos:
+
+### **Steeps**.
 
 **IP: 10.2.2.199/26**
 
