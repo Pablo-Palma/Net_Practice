@@ -6,10 +6,10 @@ Bienvenidos a Net_Practice, un ejercicio destinado a dominar la configuración y
 <summary><strong>Concepts</strong></summary>
   
 ### 1. TCP/IP
-**IP (Internet Protocol Adresses):** Una cadena única de números separados por puntos (IPv4) o dos puntos (IPv6) que identifica un dispositivo en una red. Una dirección IP consta de dos partes principales: el ID de Red y el ID de Host, diferenciados por una máscara de subred. Por ejemplo, en la dirección IP `192.168.1.1/24`, el ID de Red es `192.168.1` y el ID de Host es `1` .
+**IP (Internet Protocol Adresses):** Una cadena única de números separados por puntos (IPv4) o dos puntos (IPv6) que identifica un dispositivo en una red. Una dirección IP consta de dos partes principales: el **Network Id** y el **Host Id**, diferenciados por una **Subnet Mask** o máscara de subred. Por ejemplo, en la dirección IP `192.168.1.1/24`, el Network Id es `192.168.1` y el Host Id  es `1` .
 
 #### Subcomponentes:
-- **Máscara de Subred:** Una combinación de bits que enmascara la dirección IP y divide los componentes de red y host.
+- **Subnet Mask:** Una combinación de bits que enmascara la dirección IP y divide los componentes de red y host.
 - **Network Id:**  La parte de la dirección IP que identifica la red específica.
 - **Host Id:** La parte de la dirección IP que identifica el dispositivo específico en la red.
 
