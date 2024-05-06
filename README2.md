@@ -149,7 +149,7 @@ Supongamos que queremos averiguar a que red pertenece la siguiente **IP: 10.2.2.
   - **Disponibilidad de Direcciones:** `64 - 2 = 62` direcciones, desde la `First ID` hasta la `Last ID`.
 
 
- Si se utilizara un CIDR `/29`, el proceso implicaría contar de 8 en 8 desde `10.2.2.0` hasta `10.2.2.192`, lo que puede resultar en un proceso realmente lento y aburrido por eso voy a presentarte en el siguinte apartado unos **Speed Tricks**.
+ Si se utilizara un CIDR `/29`, el proceso implicaría contar de 8 en 8 desde `10.2.2.0` hasta `10.2.2.192`, lo que puede resultar en un proceso realmente lento y aburrido por eso voy a presentarte en el siguiente apartado unos **Speed Tricks** que llevarán tu eficiencia al siguiente nivel.
 
  # Speed Tricks:
 
