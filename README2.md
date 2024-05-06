@@ -104,20 +104,16 @@ Ahora que sabes crear tu propio **Cheat Sheet**, y conoces los conceptos necesar
 
  # Speed Tricks:
 
-Para simplificar el proceso a la hora de buscar a que subred pertenece una ip, sobretodo cuando el **group size** es pequeño puedes utilizar estos trucos:
+Para simplificar el proceso a la hora de buscar a qué subred pertenece una ip, especialmente cuando el GROUP SIZE es pequeño, puedes utilizar estos trucos:
 
-    1. Multiplicar el **Group size** por **10**   EX: 8 * 10 = 80;    --->   .8
-                                                                      --->  .80
-                                                                      --->  .160  
-    
-    2. Multiplicar el Multiplicar el **Group size** por **2**         --->  .8
-                                                                      --->  .80
-                                                                                 x2
-                                                                      --->  .160
-                                                                      
-    3. Todos los grupos pasan por 128, asique podemos partir de este número para iniciar la búsqueda.
-    
-    4. Todos los grupos pasan por el subnet Mask de su izquierda en la cheat sheet, asique es un buen momento 
-    para hacer uso de esta, y en caso de pasarnos, empezar por un ip superior y restar el group size hasta encontrar el
-    segmento al que pertenece nuestro ip objetivo.
+**1. Multiplicar el GROUP SIZE por 10:**
+   - Ejemplo: 8 * 10 = 80; Resultados: .8, .80, .160
+
+**2. Multiplicar el GROUP SIZE por 2:**
+   - Resultados: .8 -> .80 -> .160 (multiplicar .80 por 2)
+
+**3. Todos los grupos pasan por 128**, así que podemos partir de este número para iniciar la búsqueda.
+
+**4. Todos los grupos pasan por la subnet mask de su izquierda en la cheat sheet**, por lo tanto, es un buen momento para hacer uso de esta, y en caso de pasarnos, empezar por una ip superior y restar el GROUP SIZE hasta encontrar el segmento al que pertenece nuestra ip objetivo.
+
 
