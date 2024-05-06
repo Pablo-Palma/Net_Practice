@@ -165,6 +165,7 @@ Para simplificar el proceso a la hora de buscar a qué subred pertenece una ip, 
 
 **4. Todos los grupos pasan por la subnet mask de su izquierda en la cheat sheet**, por lo tanto, es un buen momento para hacer uso de esta, y en caso de pasarnos, empezar por una ip superior y restar el GROUP SIZE hasta encontrar el segmento al que pertenece nuestra ip objetivo.
 
+</details>
 
 <details>
 <summary><strong>Levels</strong></summary>
